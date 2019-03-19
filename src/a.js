@@ -1,7 +1,6 @@
 import * as React from 'react';
 import styles from './App.css';
-import { CellMeasurer, CellMeasurerCache ,MultiGrid } from 'react-virtualized';
-
+import { CellMeasurer, CellMeasurerCache, Grid } from 'react-virtualized';
 
 export default class App extends React.PureComponent {
 
@@ -10,8 +9,6 @@ export default class App extends React.PureComponent {
 
     this._cache = new CellMeasurerCache({
       defaultWidth: 150,
-      defaultHeight: 30,
-      minHeight: 30,
       fixedWidth: true,
     });
 
@@ -21,14 +18,14 @@ export default class App extends React.PureComponent {
   render() {
 
     return (
-      <MultiGrid
+      <Grid
         className={styles.BodyGrid}
-        columnCount={1000}
-        columnWidth={this._getColumnWidth}
+        columnCount={50}
+        columnWidth={150}
         deferredMeasurementCache={this._cache}
         height={400}
-        overscanColumnCount={10}
-        overscanRowCount={10}
+        overscanColumnCount={0}
+        overscanRowCount={2}
         cellRenderer={this._cellRenderer}
         rowCount={1000}
         rowHeight={this._cache.rowHeight}
@@ -38,7 +35,7 @@ export default class App extends React.PureComponent {
   }
 
   _cellRenderer({columnIndex, key, parent, rowIndex, style}) {
-    let content = '哈哈哈哈哈哈哈哈哈哈哈jkflkdjfsa';
+    const content = '哈哈哈哈看了看看看急急急';
 
     return (
       <CellMeasurer
@@ -50,15 +47,11 @@ export default class App extends React.PureComponent {
         <div
           style={{
             ...style,
-            wordBreak: 'break-word',
-            width:this._getColumnWidth({index:columnIndex}),
+            width: 150,
           }}>
           {content}
         </div>
       </CellMeasurer>
     );
   }
-  _getColumnWidth = ({index}) => {
-    return (index +1) * 50;
-  };
 }

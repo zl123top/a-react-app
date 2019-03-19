@@ -1,41 +1,22 @@
-.App {
-  text-align: center;
+.GridRow {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.GridColumn {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex: 1 1 auto;
+}
+.LeftSideGridContainer {
+  flex: 0 0 50px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-.Table {
+.BodyGrid {
   width: 100%;
-  margin-top: 15px;
+  border: 1px solid #e0e0e0;
 }
-.headerRow,
+
 .evenRow,
 .oddRow {
   border-bottom: 1px solid #e0e0e0;
@@ -43,31 +24,47 @@
 .oddRow {
   background-color: #fafafa;
 }
-.headerColumn {
-  text-transform: none;
-}
-.exampleColumn {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 
-.checkboxLabel {
-  margin-left: .5rem;
-}
-.checkboxLabel:first-of-type {
-  margin-left: 0;
-}
-
-.noRows {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.cell {
+  width: 100%;
+  height: 100%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  font-size: 1em;
-  color: #bdbdbd;
+  padding: 0.5em 1em;
+}
+.cell {
+  border-right: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.uniformSizeCell {
+  padding: 0.5rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.tableRow {
+  border-bottom: 1px solid #eee;
+}
+.tableColumn {
+  padding: 5px 15px 5px 0;
+}
+
+.Tab {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px 6px;
+  outline: none;
+  background: #eee;
+  margin: 4px;
+  cursor: pointer;
+}
+
+.ActiveTab {
+  background-color: #4db6ac;
+  border: 1px solid #3ca59b;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: default;
 }
